@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DORAK · Product case study · Ameer Bazzar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="dorak-study.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="logo" href="index.html">Ameer Bazzar</a>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#dorak">DORAK</a>
+        <a href="index.html#contact">Contact</a>
+        <a class="nav-cta" href="assets/DORAK_Case_Study.pdf" download>Download PDF</a>
+      </nav>
+    </header>
+
+    <main class="study">
+      <p class="kicker">Product case study · 2025–2026</p>
+      <h1>DORAK</h1>
+      <p class="study-sub">
+        A mobile app for group savings circles — Flutter on the phone, Django as the API, built for
+        real use. Built and maintained by Ameer Bazzar.
+      </p>
+      <p class="hero-location">Available in English and Arabic · iOS and Android · Qatar</p>
+
+      <div class="study-actions">
+        <a class="btn btn-primary" href="assets/DORAK_Case_Study.pdf" download>Download PDF</a>
+        <a class="btn btn-ghost" href="index.html#contact">Hire me</a>
+      </div>
+
+      <ul class="hero-stats study-stats">
+        <li>
+          <span class="stat-value">48</span>
+          <span class="stat-label">Flutter screens</span>
+        </li>
+        <li>
+          <span class="stat-value">1,700+</span>
+          <span class="stat-label">App texts in English and Arabic</span>
+        </li>
+        <li>
+          <span class="stat-value">End to end</span>
+          <span class="stat-label">Groups, payments, reminders, admin</span>
+        </li>
+      </ul>
+
+      <section class="study-block">
+        <h2>The problem</h2>
+        <p>
+          Savings circles (jam‘iyya / dawrah) often run on WhatsApp, spreadsheets, and trust.
+          Members miss payments, receipts get lost, and admins have no shared record of who paid and
+          who is next to receive money. DORAK moves that process into an app: join a group, pay,
+          review payments, move to the next round, and notify everyone — in Arabic and English.
+        </p>
+      </section>
+
+      <section class="study-block">
+        <h2>What I built</h2>
+        <div class="study-grid">
+          <article class="card">
+            <h3>Member app</h3>
+            <p>
+              Onboarding, login (email or phone), fingerprint/face unlock, home dashboard, browse
+              groups, join requests, invitations and QR join, payment-photo upload, notifications,
+              profile, and two-factor login.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Admin operations</h3>
+            <p>
+              Check ID documents, create and start groups, approve members, invite many people at
+              once, review payments, set who gets paid and when, export group money reports as PDF.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Money layer</h3>
+            <p>
+              One money system for joining fees and monthly payments. The server sets the amount
+              (the phone cannot send a fake number). Admins review payment photos. Every change is
+              logged.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Reliability</h3>
+            <p>
+              Automatic payment reminders in the 7 days before a due date, phone push notifications,
+              live updates, Redis cache, and cloud storage for receipts and ID photos.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="study-block">
+        <h2>Architecture</h2>
+        <div class="arch">
+          <div class="arch-col">
+            <strong>Client</strong>
+            Flutter 3 · Firebase · secure storage · fingerprint/face unlock · Arabic layout (right to left)
+          </div>
+          <div class="arch-col">
+            <strong>API</strong>
+            Django REST · PostgreSQL · Redis · Celery + Beat · Django Channels
+          </div>
+          <div class="arch-col">
+            <strong>Cloud</strong>
+            Railway / Render · Docker · Firebase · Cloudinary · HTTPS
+          </div>
+        </div>
+      </section>
+
+      <section class="study-block">
+        <h2>Security I owned in the product</h2>
+        <ul class="feature-list">
+          <li>Two-factor login (email/SMS). One-time codes are stored hashed. Extra checks before changing email, phone, or password.</li>
+          <li>Login sessions expire after 30 days. Logout and password change sign you out everywhere.</li>
+          <li>Limits on how often someone can try to log in or register from the same IP.</li>
+          <li>Money rules on the server: a user cannot approve their own payment or create a payout.</li>
+          <li>Database row-level security on payments, notifications, ID checks, and group membership.</li>
+          <li>On the phone: block screenshots on code/password screens; extra checks if the device is rooted or jailbroken.</li>
+        </ul>
+      </section>
+
+      <section class="study-block">
+        <h2>My role</h2>
+        <p>
+          Flutter app, Django APIs, groups and payments, admin tools, notifications, security, and
+          hosting. This is real product software in the same repository as this site — not a tutorial
+          copy.
+        </p>
+      </section>
+
+      <section class="study-block study-contact">
+        <h2>Ask for a live demo</h2>
+        <p>
+          DORAK source is private; case study + live demo on request.
+        </p>
+        <a class="btn btn-primary" href="mailto:Bazzarameer3@gmail.com">Email me</a>
+        <a class="btn btn-ghost" href="tel:+972568429238">+972 56 842 9238</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Ameer Bazzar · DORAK case study</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
